@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" color="#CCA388" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn @click.stop="miniVariant = !miniVariant" icon>
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
@@ -77,19 +77,44 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Главная',
           to: '/'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
+          title: 'Модели',
           to: '/inspire'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Преимущества',
+          to: '/'
+        },
+        {
+          icon: 'mdi-apps',
+          title: 'Дополнительное оборудование',
+          to: '/'
+        },
+        {
+          icon: 'mdi-truck-delivery',
+          title: 'Доставка и установка',
+          to: '/delivery'
+        },
+        {
+          icon: 'mdi-message-draw',
+          title: 'Отзывы',
+          to: '/reviews'
+        },
+        {
+          icon: 'mdi-map-marker',
+          title: 'Контакты',
+          to: '/contacts'
         }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'SRUBOFF'
     }
   }
 }

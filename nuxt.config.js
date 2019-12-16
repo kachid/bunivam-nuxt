@@ -26,7 +26,9 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    {src: '~assets/main.scss', lang: 'sass'}
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -49,17 +51,19 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    treeShake: true,
     theme: {
-      dark: true,
+      dark: false,
       themes: {
-        dark: {
+        ligth: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          secondary: '#e9e6e6',
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          background: '#FDFDFC'
         }
       }
     }
