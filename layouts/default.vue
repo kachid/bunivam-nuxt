@@ -83,7 +83,7 @@ export default {
         {
           icon: 'mdi-home-circle',
           title: 'Модели',
-          to: '/inspire'
+          to: '/models'
         },
         {
           icon: 'mdi-wallet-plus',
