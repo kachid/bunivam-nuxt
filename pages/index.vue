@@ -1,75 +1,175 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
+  <header id="main_header">
+    <div class="wrapper_main">
+      <h1 class="h1">Бани от компании “SRUBOFF” в Екатеринбурге</h1>
+      <div class="logo">
+        <img src="images/logo.png" alt="logo" />
       </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>
-            Vuetify is a progressive Material Design component framework for
-            Vue.js. It was designed to empower developers to create amazing
-            applications.
-          </p>
-          <p>
-            For more information on Vuetify, check out the
-            <a href="https://vuetifyjs.com" target="_blank"> documentation </a>.
-          </p>
-          <p>
-            If you have questions, please join the official
-            <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat">
-              discord </a
-            >.
-          </p>
-          <p>
-            Find a bug? Report it on the github
-            <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board </a
-            >.
-          </p>
-          <p>
-            Thank you for developing with Vuetify and I look forward to bringing
-            more exciting features in the future.
-          </p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3" />
-          <a href="https://nuxtjs.org/" target="_blank">
-            Nuxt Documentation
-          </a>
-          <br />
-          <a href="https://github.com/nuxt/nuxt.js" target="_blank">
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn color="primary" nuxt to="/inspire">
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+      <p class="h2">Всегда рядом с вами<sup>*</sup></p>
+      <a class="tel1 text_right" href="tel:+73433833450">
+        Телефон: 8 (343) 383-34-50
+      </a>
+      <a class="tel2 text_right" href="tel:+79221468521">
+        WhatsApp: +7 (922) 146-85-21
+      </a>
+      <div class="text">
+        <p class="text_center"><b>Здравствуйте, друзья!</b></p>
+        <p>
+          Предлагаем вам готовые бани под ключ, с оригинальным дизайном,
+          построенные с соблюдением СНиП. Наши бани не рассыхаются и не гниют.
+        </p>
+        <p>
+          <a href="#map">Приглашаем посетить наше производство</a>
+          , всё посмотрите сами.
+        </p>
+        <p class="text_right it_bold">
+          <sup>*</sup>для установки бани не требуется фундамент
+        </p>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  }
+  components: {},
+  data: () => ({
+    items: [
+      {
+        color: '#1F7087',
+        src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+        title: 'Supermodel',
+        artist: 'Foster the People'
+      },
+      {
+        color: '#952175',
+        src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+        title: 'Halcyon Days',
+        artist: 'Ellie Goulding'
+      }
+    ]
+  })
 }
 </script>
+
+<style scoped>
+.wrapper_main {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-areas:
+    'h1 h1 h1'
+    'logo h2 tel1'
+    'logo h2 tel2'
+    'logo text text';
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, 1fr);
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: auto;
+  padding: 10% 15vmax 0;
+  font-size: 20px;
+}
+
+.wrapper_main p {
+  padding: 0;
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.h1 {
+  grid-area: h1;
+  font-size: 30px;
+}
+
+.h2 {
+  grid-area: h2;
+  font-size: 26px;
+}
+
+.tel1 {
+  grid-area: tel1;
+  justify-self: end;
+}
+
+.tel2 {
+  grid-area: tel2;
+  justify-self: end;
+}
+
+.tel1,
+.tel2 {
+  color: rgb(22, 94, 8);
+}
+
+.text {
+  grid-area: text;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1092px) {
+  .wrapper_main {
+    grid-template-areas:
+      'h1 h1'
+      '. h2'
+      'logo tel1'
+      'logo tel2'
+      'logo text';
+    grid-template-rows: auto 2fr 1fr 1fr auto;
+    grid-template-columns: minmax(250px, 1fr) minmax(350px, 2fr);
+    padding: 0 5vmax;
+  }
+
+  .h1 {
+    font-size: 2.8vmax;
+  }
+
+  .h2 {
+    font-size: 1.8vmax;
+  }
+}
+
+@media screen and (max-width: 752px) {
+  .wrapper_main {
+    grid-template-areas:
+      'h1 h1'
+      'logo h2'
+      'logo tel1'
+      'logo tel2'
+      'text text';
+    grid-template-rows: auto 1fr 1fr 1fr auto;
+    grid-template-columns: minmax(auto, 1fr) minmax(250px, 2fr);
+    padding: 0 3vmax;
+  }
+
+  .h1 {
+    font-size: 20px;
+  }
+
+  .h2 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .wrapper_main {
+    grid-template-areas:
+      'h1'
+      'h2'
+      'logo'
+      'tel1'
+      'tel2'
+      'text';
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: minmax(330px, 1fr);
+    padding: 0 10px;
+  }
+}
+</style>

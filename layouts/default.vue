@@ -59,7 +59,10 @@
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
+      <span>
+        &copy; 2019 Разработка сайта
+        <a href="mailto:kachid76@gmail.com">М.Кахидзе</a>
+      </span>
     </v-footer>
   </v-app>
 </template>
