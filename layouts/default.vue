@@ -81,19 +81,19 @@ export default {
           to: '/'
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-home-circle',
           title: 'Модели',
           to: '/inspire'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-wallet-plus',
           title: 'Преимущества',
-          to: '/'
+          to: '/arrangement'
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-home-plus',
           title: 'Дополнительное оборудование',
-          to: '/'
+          to: '/additions'
         },
         {
           icon: 'mdi-truck-delivery',
