@@ -3,13 +3,16 @@
     <v-card>
       <div class="d-flex flex-no-wrap justify-space-between">
         <div>
-          <v-card-title v-text="models[0].name" class="headline"></v-card-title>
+          <v-card-title
+            v-text="currentModel.name"
+            class="headline"
+          ></v-card-title>
 
-          <v-card-subtitle v-text="models[0].subheader"></v-card-subtitle>
+          <v-card-subtitle v-text="currentModel.subheader"></v-card-subtitle>
         </div>
 
         <v-avatar class="ma-3" size="125" tile>
-          <v-img :src="models[0].images[0].src"></v-img>
+          <v-img :src="currentModel.images[0].src"></v-img>
         </v-avatar>
       </div>
     </v-card>
@@ -106,7 +109,16 @@ export default {
         Основание: обработанная огнебиозащитой доска 50*150, половые лаги, блоки для установки.`
       }
     ]
-  })
+  }),
+  computed: {
+    currentModel() {
+      return this.models.find(({ id }) => id === this.id)
+    }
+  },
+  asyncData({ params }) {
+    const id = Number(params.id)
+    return { id }
+  }
 }
 </script>
 
