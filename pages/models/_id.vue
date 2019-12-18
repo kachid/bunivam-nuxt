@@ -1,30 +1,40 @@
 <template>
   <article>
     <v-card>
-      <div class="d-flex flex-no-wrap justify-space-between">
-        <div>
-          <v-card-title
-            v-text="currentModel.name"
-            class="headline"
-          ></v-card-title>
+      <div class="d-flex justify-space-around align-center">
+        <v-card-title v-text="currentModel.name" class="headline" />
+        <div>{{ currentModel.subheader }}</div>
+      </div>
 
-          <v-card-subtitle v-text="currentModel.subheader"></v-card-subtitle>
-        </div>
+      <div class="d-flex">
+        <v-card>
+          <AppModelImage
+            :images="currentModel.images"
+            :initialDialog="openCarousel"
+          />
+          <v-card-actions>
+            <v-btn @click="openCarousel = true">photo</v-btn>
+            <v-btn>video</v-btn>
+          </v-card-actions>
+        </v-card>
 
-        <v-avatar class="ma-3" size="125" tile>
-          <v-img :src="currentModel.images[0].src"></v-img>
-        </v-avatar>
+        <v-card-text>{{ currentModel.description }}</v-card-text>
       </div>
     </v-card>
   </article>
 </template>
 
 <script>
+import AppModelImage from '@/components/ModelImage'
 export default {
+  components: {
+    AppModelImage
+  },
   validate({ params }) {
     return Boolean(params.id)
   },
   data: () => ({
+    openCarousel: false,
     models: [
       {
         id: 1,
