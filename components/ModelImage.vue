@@ -3,7 +3,12 @@
     <v-avatar @click.stop="dialog = true" class="ma-3" size="400" tile>
       <v-img :src="images[0].src" />
     </v-avatar>
-    <v-dialog v-model="dialog" overlay-opacity="0.8">
+    <v-dialog
+      v-model="dialog"
+      @click:outside="clickOutside"
+      @keydown="clickOutside"
+      overlay-opacity="0.8"
+    >
       <v-carousel
         cycle
         height="600"
@@ -43,6 +48,12 @@ export default {
   watch: {
     initialDialog(value) {
       this.dialog = value
+    }
+  },
+  methods: {
+    clickOutside(e) {
+      this.dialog = false
+      this.$emit('closeDialog')
     }
   }
 }

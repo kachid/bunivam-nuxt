@@ -11,6 +11,7 @@
           <AppModelImage
             :images="currentModel.images"
             :initialDialog="openCarousel"
+            @closeDialog="openCarousel = false"
           />
           <AppModelVideo
             :video="currentModel.video"
