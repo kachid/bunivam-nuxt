@@ -16,6 +16,7 @@
           <AppModelVideo
             :video="currentModel.video"
             :initialDialog="dialogVideo"
+            @closeDialog="dialogVideo = false"
           />
           <v-card-actions>
             <v-btn @click="openCarousel = true">photo</v-btn>

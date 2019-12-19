@@ -1,6 +1,12 @@
 <template>
-  <v-dialog v-model="dialog" max-width="80%" overlay-opacity="0.8">
-    <video controls>
+  <v-dialog
+    v-model="dialog"
+    @click:outside="clickOutside"
+    @keydown="clickOutside"
+    max-width="80%"
+    overlay-opacity="0.8"
+  >
+    <video ref="video" controls>
       <source :src="video.src" :type="video.type" />
       Your browser doesn't support HTML5 video tag.
     </video>
@@ -30,6 +36,13 @@ export default {
   watch: {
     initialDialog(value) {
       this.dialog = value
+    }
+  },
+  methods: {
+    clickOutside(e) {
+      this.dialog = false
+      this.$refs.video.pause()
+      this.$emit('closeDialog')
     }
   }
 }
