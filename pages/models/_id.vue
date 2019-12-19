@@ -12,9 +12,13 @@
             :images="currentModel.images"
             :initialDialog="openCarousel"
           />
+          <AppModelVideo
+            :video="currentModel.video"
+            :initialDialog="dialogVideo"
+          />
           <v-card-actions>
             <v-btn @click="openCarousel = true">photo</v-btn>
-            <v-btn>video</v-btn>
+            <v-btn @click.stop="dialogVideo = true">video</v-btn>
           </v-card-actions>
         </v-card>
 
@@ -26,15 +30,19 @@
 
 <script>
 import AppModelImage from '@/components/ModelImage'
+import AppModelVideo from '@/components/ModelVideo'
+
 export default {
   components: {
-    AppModelImage
+    AppModelImage,
+    AppModelVideo
   },
   validate({ params }) {
     return Boolean(params.id)
   },
   data: () => ({
     openCarousel: false,
+    dialogVideo: false,
     models: [
       {
         id: 1,
