@@ -3,7 +3,7 @@
     v-model="dialog"
     @click:outside="clickOutside"
     @keydown="clickOutside"
-    max-width="80%"
+    :max-width="dialogWidth"
     overlay-opacity="0.8"
   >
     <video ref="video" controls>
@@ -33,6 +33,26 @@ export default {
   data: () => ({
     dialog: false
   }),
+  computed: {
+    dialogWidth() {
+      let result
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+        case 'sm':
+          result = '100%'
+          break
+        case 'md':
+          result = '80%'
+          break
+        case 'lg':
+          result = '60%'
+          break
+        case 'xl':
+          result = '50%'
+      }
+      return result
+    }
+  },
   watch: {
     initialDialog(value) {
       this.dialog = value
@@ -50,6 +70,7 @@ export default {
 
 <style scoped>
 video {
-  max-width: 80%;
+  display: block;
+  margin: 0 auto;
 }
 </style>
