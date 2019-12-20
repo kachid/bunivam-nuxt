@@ -43,9 +43,6 @@
 <script>
 export default {
   name: 'ModelImage',
-  mounted() {
-    console.log(this.$vuetify.breakpoint)
-  },
   props: {
     images: {
       type: Array,
