@@ -17,6 +17,7 @@
 export default {
   name: 'ModelPrice',
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     price: {
       type: Array
     }

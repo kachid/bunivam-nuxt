@@ -1,13 +1,11 @@
 <template>
   <section id="arrangement" class="grand_block">
     <h2>ПРЕИМУЩЕСТВА наших БАНЬ</h2>
-    <div class="arrangement_wrapper">
-      <ul v-for="item in arrangementList" :key="item.id" class="arrangement">
-        <span>{{ item.header }}:</span>
-        <li>{{ item.our }}</li>
-        <li>{{ item.other }}</li>
-      </ul>
-    </div>
+    <v-row>
+      <v-col v-for="item in arrangementList" :key="item.id" cols="12" md="6">
+        <AppCompared :distinction="item" />
+      </v-col>
+    </v-row>
     <p>
       Наша баня не требует фундамента, можно перевезти в любое место при
       переезде.
@@ -17,7 +15,11 @@
 </template>
 
 <script>
+import AppCompared from '@/components/Compared'
+
 export default {
+  name: 'Arrangement',
+  components: { AppCompared },
   data: () => ({
     arrangementList: [
       {
@@ -110,5 +112,3 @@ export default {
   })
 }
 </script>
-
-<style lang="scss" scoped></style>
