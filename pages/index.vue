@@ -1,33 +1,31 @@
 <template>
-  <header id="main_header">
-    <div class="wrapper_main">
-      <h1 class="h1">Бани от компании “SRUBOFF” в Екатеринбурге</h1>
-      <div class="logo">
-        <img src="images/logo.png" alt="logo" />
-      </div>
-      <p class="h2">Всегда рядом с вами<sup>*</sup></p>
-      <a class="tel1 text_right" href="tel:+73433833450">
-        Телефон: 8 (343) 383-34-50
-      </a>
-      <a class="tel2 text_right" href="tel:+79221468521">
-        WhatsApp: +7 (922) 146-85-21
-      </a>
-      <div class="text">
-        <p class="text_center"><b>Здравствуйте, друзья!</b></p>
-        <p>
-          Предлагаем вам готовые бани под ключ, с оригинальным дизайном,
-          построенные с соблюдением СНиП. Наши бани не рассыхаются и не гниют.
-        </p>
-        <p>
-          <a href="#map">Приглашаем посетить наше производство</a>
-          , всё посмотрите сами.
-        </p>
-        <p class="text_right it_bold">
-          <sup>*</sup>для установки бани не требуется фундамент
-        </p>
-      </div>
+  <div class="wrapper_main backgroundFirst">
+    <h1 class="h1">Бани от компании “SRUBOFF” в Екатеринбурге</h1>
+    <div class="logo">
+      <img src="/images/logo.png" alt="logo" />
     </div>
-  </header>
+    <p class="h2">Всегда рядом с вами<sup>*</sup></p>
+    <a class="tel1 text_right" href="tel:+73433833450">
+      Телефон: 8 (343) 383-34-50
+    </a>
+    <a class="tel2 text_right" href="tel:+79221468521">
+      WhatsApp: +7 (922) 146-85-21
+    </a>
+    <div class="text">
+      <p class="text_center"><b>Здравствуйте, друзья!</b></p>
+      <p>
+        Предлагаем вам готовые бани под ключ, с оригинальным дизайном,
+        построенные с соблюдением СНиП. Наши бани не рассыхаются и не гниют.
+      </p>
+      <p>
+        <a href="#map">Приглашаем посетить наше производство</a>
+        , всё посмотрите сами.
+      </p>
+      <p class="text_right it_bold">
+        <sup>*</sup>для установки бани не требуется фундамент
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -55,6 +53,8 @@ export default {
 <style scoped>
 .wrapper_main {
   display: grid;
+  width: 100%;
+  height: 100%;
   grid-gap: 15px;
   grid-template-areas:
     'h1 h1 h1'

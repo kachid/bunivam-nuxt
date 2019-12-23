@@ -1,6 +1,6 @@
 <template>
-  <v-card class="mx-auto" shaped ripple>
-    <v-list disabled>
+  <v-card class="mx-auto" shaped>
+    <v-list>
       <v-subheader>{{ distinction.header }}</v-subheader>
       <v-list-item-group v-model="item" color="primary">
         <v-list-item>
@@ -8,7 +8,7 @@
             <v-icon v-text="icons.our" />
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="distinction.our" />
+            {{ distinction.our }}
           </v-list-item-content>
         </v-list-item>
         <v-list-item>
@@ -16,7 +16,7 @@
             <v-icon v-text="icons.other" />
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title v-text="distinction.other" />
+            {{ distinction.other }}
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>

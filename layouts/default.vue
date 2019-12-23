@@ -42,7 +42,7 @@
       </v-btn>
     </v-app-bar>
     <v-content>
-      <v-container>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-content>
@@ -58,11 +58,13 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>
-        &copy; 2019 Разработка сайта
+    <v-footer :fixed="fixed" app color="#CCA388">
+      <span class="overline">
+        Разработка сайта
         <a href="mailto:kachid76@gmail.com">М.Кахидзе</a>
       </span>
+      <v-spacer />
+      <span>&copy; 2019</span>
     </v-footer>
   </v-app>
 </template>

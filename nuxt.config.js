@@ -26,9 +26,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    {src: '~assets/main.scss', lang: 'sass'}
-  ],
+  css: [{ src: '~/assets/main.scss', lang: 'sass' }],
   /*
    ** Plugins to load before mounting the App
    */
@@ -55,7 +53,7 @@ export default {
     theme: {
       dark: false,
       themes: {
-        ligth: {
+        light: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: '#e9e6e6',
@@ -63,7 +61,9 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
-          background: '#FDFDFC'
+          background: '#FDFDFC',
+          backgroundFirst: '#EB814A',
+          textOne: '#6A3C35'
         }
       }
     }
