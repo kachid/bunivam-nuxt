@@ -1,25 +1,19 @@
 <template>
-  <header>
-    <h2>Модели</h2>
-    <nuxt-link
-      :to="`/models/${model.id}`"
-      v-for="model in modelList"
-      :key="model.id"
-    >
-      {{ model.name }}
-      <div class="wrapper_nav-img">
-        <picture>
-          <source :srcset="model.src1" />
-          <img :src="model.src2" :alt="model.description" />
-        </picture>
-      </div>
-      <span>от {{ model.price }} руб.</span>
-    </nuxt-link>
-  </header>
+  <v-row>
+    <v-col v-for="model in modelList" :key="model.id">
+      <AppBriefModel :model="model" />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+import AppBriefModel from '@/components/BriefModel'
+
 export default {
+  name: 'Models',
+  components: {
+    AppBriefModel
+  },
   data: () => ({
     modelList: [
       {
