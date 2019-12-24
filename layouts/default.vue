@@ -24,7 +24,13 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" color="#CCA388" fixed app>
+    <v-app-bar
+      :clipped-left="clipped"
+      color="#CCA388"
+      fixed
+      elevate-on-scroll
+      app
+    >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn @click.stop="miniVariant = !miniVariant" icon>
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
@@ -32,10 +38,10 @@
       <v-btn @click.stop="clipped = !clipped" icon>
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn @click.stop="fixed = !fixed" icon>
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title
+        v-text="appTitle"
+        class="font-weight-black secondary--text"
+      />
       <v-spacer />
       <v-btn @click.stop="rightDrawer = !rightDrawer" icon>
         <v-icon>mdi-menu</v-icon>
@@ -58,13 +64,32 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app color="#CCA388">
-      <span class="overline">
-        Разработка сайта
-        <a href="mailto:kachid76@gmail.com">М.Кахидзе</a>
-      </span>
-      <v-spacer />
-      <span>&copy; 2019</span>
+    <v-footer absolute padless app color="accent">
+      <v-card flat tile width="100%" class="accent text-center">
+        <v-card-text class="pa-0">
+          <v-btn
+            v-for="({ title, to }, i) in items"
+            :key="i"
+            :to="to"
+            color="white"
+            nuxt
+            exact
+            text
+            rounded
+            class="my-2"
+          >
+            {{ title }}
+          </v-btn>
+        </v-card-text>
+        <v-divider />
+        <v-card-text class="pa-0">
+          <span class="overline">
+            Разработка сайта
+            <a href="mailto:kachid76@gmail.com">М.Кахидзе</a>
+          </span>
+          <span>&copy; 2019</span>
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
@@ -75,7 +100,6 @@ export default {
     return {
       clipped: true,
       drawer: false,
-      fixed: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -116,7 +140,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'SRUBOFF'
+      appTitle: 'SRUBOFF'
     }
   }
 }

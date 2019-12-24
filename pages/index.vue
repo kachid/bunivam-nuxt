@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper_main backgroundFirst">
+  <div class="wrapper_main background">
     <h1 class="h1">Бани от компании “SRUBOFF” в Екатеринбурге</h1>
     <div class="logo">
       <img src="/images/logo.png" alt="logo" />
