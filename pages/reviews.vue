@@ -1,13 +1,25 @@
 <template>
-  <section id="reviews" class="grand_block">
-    <h2>ОТЗЫВЫ</h2>
-    <div class="wrap_reviews">
-      <video v-for="(src, i) in srcVideo" :key="i" controls="controls">
-        <source :src="src" :type="typeVideo" :onclick="yaCounter" />
-        Элемент video не поддерживается вашим браузером.
-      </video>
-    </div>
-  </section>
+  <v-row justify="center">
+    <v-col cols="12" lg="9">
+      <v-card>
+        <v-card-title>ОТЗЫВЫ</v-card-title>
+        <v-row>
+          <v-col v-for="(src, i) in srcVideo" :key="i" cols="12" lg="6">
+            <v-card outlined>
+              <v-row justify="center" align="center">
+                <v-col>
+                  <video controls="controls" class="text-center">
+                    <source :src="src" :type="typeVideo" :onclick="yaCounter" />
+                    Элемент video не поддерживается вашим браузером.
+                  </video>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -31,4 +43,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+video {
+  max-width: 100%;
+  margin: auto;
+}
+</style>
