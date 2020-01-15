@@ -66,7 +66,7 @@
     </v-navigation-drawer>
     <v-footer absolute padless app color="accent">
       <v-card flat tile width="100%" class="accent text-center">
-        <v-card-text class="pa-0">
+        <v-card-text class="pa-0 hidden-md-and-down">
           <v-btn
             v-for="({ title, to }, i) in items"
             :key="i"
