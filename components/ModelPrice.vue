@@ -1,5 +1,5 @@
 <template>
-  <v-list shaped elevation="2" expand>
+  <v-list shaped expand>
     <v-subheader>ЦЕНА</v-subheader>
     <v-list-item-group v-model="item" color="primary">
       <v-list-item v-for="(item, i) in price" :key="i">

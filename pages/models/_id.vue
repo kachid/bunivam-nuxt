@@ -1,37 +1,41 @@
 <template>
   <article>
     <v-card>
-      <div class="d-flex justify-space-around align-center">
+      <div class="d-flex flex-wrap justify-space-around align-center">
         <v-card-title v-text="currentModel.name" class="headline" />
         <div>{{ currentModel.subheader }}</div>
       </div>
-
-      <div class="d-flex">
-        <v-card>
-          <AppModelImage
-            :images="currentModel.images"
-            :initialDialog="openCarousel"
-            @closeDialog="openCarousel = false"
-          />
-          <AppModelVideo
-            :video="currentModel.video"
-            :initialDialog="dialogVideo"
-            @closeDialog="dialogVideo = false"
-          />
-          <v-card-actions>
-            <v-btn @click="openCarousel = true">photo</v-btn>
-            <v-btn @click.stop="dialogVideo = true">video</v-btn>
-          </v-card-actions>
+      <v-row>
+        <v-col>
+          <v-card flat>
+            <AppModelImage
+              :images="currentModel.images"
+              :initialDialog="openCarousel"
+              @closeDialog="openCarousel = false"
+            />
+            <AppModelVideo
+              :video="currentModel.video"
+              :initialDialog="dialogVideo"
+              @closeDialog="dialogVideo = false"
+            />
+            <v-card-actions>
+              <v-btn @click="openCarousel = true">photo</v-btn>
+              <v-btn @click.stop="dialogVideo = true">video</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col>
           <AppModelPrice :price="currentModel.price" />
-        </v-card>
-
-        <v-card-text>
-          <div class="subtitle-1">МАТЕРИАЛЫ И КОМПЛЕКТАЦИЯ</div>
-          <p v-for="(paragraf, i) in currentModel.description" :key="i">
-            {{ paragraf.title }} {{ paragraf.content }}
-          </p>
-        </v-card-text>
-      </div>
+        </v-col>
+        <v-col cols="12" lg="6">
+          <v-card-text>
+            <div class="subtitle-1">МАТЕРИАЛЫ И КОМПЛЕКТАЦИЯ</div>
+            <p v-for="(paragraf, i) in currentModel.description" :key="i">
+              {{ paragraf.title }} {{ paragraf.content }}
+            </p>
+          </v-card-text>
+        </v-col>
+      </v-row>
     </v-card>
   </article>
 </template>
