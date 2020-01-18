@@ -1,32 +1,83 @@
 <template>
-  <article id="additions" class="grand_block">
-    <section class="grand_block__header">
-      <h2 class="grand_block__header-item">ДОПОЛНИТЕЛЬНО</h2>
-      <h3 class="grand_block__header-item">можно заказать</h3>
-    </section>
-    <ul class="additions">
-      <li>Бак объёмом 70 л - 3'500 ₽</li>
-      <li>Вход сбоку - 12'000 ₽</li>
-      <li>Дополнительная перегородка - 12'000 ₽</li>
-      <li>Дополнительное окно в торце - 4000 ₽</li>
-      <li>Дополнительное окно сбоку - 6000 ₽</li>
-      <li>Душевая - 22'000 ₽</li>
-      <li>Душ-кадка - 3'500 ₽</li>
-      <li>Комната&nbsp; из кедра - 25'000 ₽</li>
-      <li>Откидные лавки - 3'800 ₽</li>
-      <li>Печь 15 кубов - 6500 ₽</li>
-      <li>Печь стекло - '10500 ₽</li>
-      <li>Пол лиственница - 1'600 ₽ за кв. метр</li>
-      <li>Санузел с унитазом - 22'000 ₽</li>
-      <li>Стеклянная дверь - 6000 ₽</li>
-      <li>Табурет - 1'000 ₽</li>
-      <li>Терраса 1 метр с балясинами - 12'000 ₽</li>
-      <li>Терраса СКАНДИНАВИЯ - 15'000 ₽</li>
-      <li>Топка снаружи - 6'500 ₽</li>
-      <li>Угловой полок - 3'800 ₽</li>
-      <li>Фонарь уличный - 1'800 ₽</li>
-      <li>Фонари для СКАНДИНАВИИ - 500 ₽</li>
-      <li>Шкаф - 6000 ₽</li>
-    </ul>
-  </article>
+  <v-row>
+    <v-col>
+      <v-card width="400">
+        <v-list>
+          <app-additions-list-group
+            v-for="(subtitle, i) in subtitles"
+            :key="i"
+            :subtitle="subtitle.name"
+            :array="subtitle.array"
+            :expand="subtitles.expand"
+            @selectedItem="currentItemID = $event"
+          />
+        </v-list>
+        <v-card-text>{{ currentItemID }}</v-card-text>
+      </v-card>
+    </v-col>
+    <v-col cols="12" lg="8">
+      <v-carousel v-model="currentItemID">
+        <v-carousel-item
+          v-for="image in additionsImges"
+          :key="image.id"
+          :src="image.src"
+          contain
+        >
+        </v-carousel-item>
+      </v-carousel>
+    </v-col>
+  </v-row>
 </template>
+
+<script>
+import AppAdditionsListGroup from '@/components/AdditionsListGroup'
+import { additions } from '@/data'
+
+export default {
+  name: 'Additions',
+  components: {
+    AppAdditionsListGroup
+  },
+  data: () => ({
+    currentItemID: '',
+    additions,
+    steamRoomID: [10, 11, 19],
+    washingRoomID: [1, 6, 7, 13, 14],
+    restRoomID: [2, 8, 9, 22],
+    otherItemsID: [3, 4, 5, 12, 15, 16, 17, 18, 20, 21]
+  }),
+  computed: {
+    steamRoom() {
+      return this.filterBySubtitles(this.steamRoomID)
+    },
+    washingRoom() {
+      return this.filterBySubtitles(this.washingRoomID)
+    },
+    restRoom() {
+      return this.filterBySubtitles(this.restRoomID)
+    },
+    otherItems() {
+      return this.filterBySubtitles(this.otherItemsID)
+    },
+    subtitles() {
+      return [
+        { name: 'Парная', array: this.steamRoom, expand: true },
+        { name: 'Мойка', array: this.washingRoom },
+        { name: 'Комната отдыха', array: this.restRoom },
+        { name: 'Прочее', array: this.otherItems }
+      ]
+    },
+    additionsImges() {
+      return this.additions.map((item) => {
+        item.src = item.src || '/images/default-house.jpg'
+        return item
+      })
+    }
+  },
+  methods: {
+    filterBySubtitles(keyList) {
+      return this.additions.filter((item) => keyList.includes(item.id))
+    }
+  }
+}
+</script>

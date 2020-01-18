@@ -375,3 +375,78 @@ export const models = [
     ]
   }
 ]
+
+export const additions = [
+  { id: 1, text: 'Бак объёмом 70 л', price: 3500 },
+  {
+    id: 2,
+    text: 'Вход сбоку',
+    price: 12000,
+    src: '/images/additions/Баня вход сбоку.webp'
+  },
+  { id: 3, text: 'Дополнительная перегородка', price: 12000 },
+  {
+    id: 4,
+    text: 'Дополнительное окно в торце',
+    price: 4000,
+    src: '/images/additions/Окно в торце.jpg'
+  },
+  { id: 5, text: 'Дополнительное окно сбоку', price: 6000 },
+  { id: 6, text: 'Душевая', price: 22000 },
+  {
+    id: 7,
+    text: 'Душ-кадка',
+    price: 3500,
+    src: '/images/additions/Душ-кадка.jpg'
+  },
+  { id: 8, text: 'Комната из кедра', price: 25000 },
+  {
+    id: 9,
+    text: 'Откидные лавки',
+    price: 3800,
+    src: '/images/additions/Вешалка откидная лавка.webp'
+  },
+  {
+    id: 10,
+    text: 'Печь 15 кубов',
+    price: 6500,
+    src: '/images/additions/Печь гривари.webp'
+  },
+  { id: 11, text: 'Печь стекло', price: 10500 },
+  { id: 12, text: 'Пол лиственница', price: 1600 },
+  {
+    id: 13,
+    text: 'Санузел с унитазом',
+    price: 22000,
+    src: '/images/additions/Туалет.webp'
+  },
+  {
+    id: 14,
+    text: 'Стеклянная дверь',
+    price: 6000,
+    src: '/images/additions/Стеклянная дверь.webp'
+  },
+  { id: 15, text: 'Табурет', price: 1000 },
+  {
+    id: 16,
+    text: 'Терраса 1 метр с балясинами',
+    price: 12000,
+    src: '/images/additions/Крыльцо к Каравелле.webp'
+  },
+  {
+    id: 17,
+    text: 'Терраса СКАНДИНАВИЯ',
+    price: 15000,
+    src: '/images/additions/3 Скандинавия сверху крыльцо.jpg'
+  },
+  {
+    id: 18,
+    text: 'Топка снаружи',
+    price: 6500,
+    src: '/images/additions/Топка снаружи.webp'
+  },
+  { id: 19, text: 'Угловой полок', price: 3800 },
+  { id: 20, text: 'Фонарь уличный', price: 1800 },
+  { id: 21, text: 'Фонари для СКАНДИНАВИИ', price: 500 },
+  { id: 22, text: 'Шкаф', price: 6000 }
+]

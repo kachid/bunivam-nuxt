@@ -18,12 +18,10 @@
 export default {
   name: 'ModelPreview',
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     model: {
-      // eslint-disable-next-line vue/require-default-prop
       type: Object
     }
   }
 }
 </script>
-
-<style scoped></style>
